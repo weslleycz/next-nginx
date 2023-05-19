@@ -1,7 +1,14 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import { ThemeProvider } from '@emotion/react';
+import './globals.scss'
+import { Roboto } from 'next/font/google'
+import { theme } from './theme'
 
-const inter = Inter({ subsets: ['latin'] })
+
+
+const inter = Roboto({
+  subsets: ['latin'],
+  weight: '100'
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +21,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR">
+       <head>
+       <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+          />
+       </head>
+      <body className={inter.className}>
+        <>
+        {children}
+        </>
+        </body>
+        
     </html>
   )
 }
